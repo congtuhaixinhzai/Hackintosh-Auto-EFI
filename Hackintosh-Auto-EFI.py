@@ -20,7 +20,7 @@ import time
 
 class OCPE:
     def __init__(self):
-        self.u = utils.Utils("OpCore Simplify")
+        self.u = utils.Utils("Hackintosh-Auto-EFI")
         self.u.clean_temporary_dir()
         self.ac = acpi_guru.ACPIGuru()
         self.c = compatibility_checker.CompatibilityChecker()

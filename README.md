@@ -1,6 +1,6 @@
 <br/>
 <div align="center">
-  <h3 align="center">OpCore Simplify</h3>
+  <h3 align="center">Hackintosh-Auto-EFI</h3>
 
   <p align="center">
     A specialized tool that streamlines <a href="https://github.com/acidanthera/OpenCorePkg">OpenCore</a> EFI creation by automating the essential setup process and providing standardized configurations. Designed to reduce manual effort while ensuring accuracy in your Hackintosh journey.
@@ -29,7 +29,7 @@
 > - Official Dortania releases or older patches **will NOT work** with macOS Tahoe 26.  
 
 > [!WARNING]
-> While OpCore Simplify significantly reduces setup time, the Hackintosh journey still requires:
+> While Hackintosh-Auto-EFI significantly reduces setup time, the Hackintosh journey still requires:
 > - Understanding basic concepts from the [Dortania Guide](https://dortania.github.io/OpenCore-Install-Guide/)
 > - Testing and troubleshooting during the installation process
 > - Patience and persistence in resolving any issues that arise
@@ -90,18 +90,18 @@
 
 ## 🚀 **How To Use**
 
-1. **Download OpCore Simplify**:
+1. **Download Hackintosh-Auto-EFI**:
    - Click **Code** → **Download ZIP**, or download directly via this [link](https://github.com/congtuhaixinhzai/Hackintosh-Auto-EFI/archive/refs/heads/main.zip).  
    - Extract the downloaded ZIP file to your desired location.
 
-   ![Download OpCore Simplify](https://i.imgur.com/mcE7OSX.png)
+   ![Download Hackintosh-Auto-EFI](https://i.imgur.com/mcE7OSX.png)
 
-2. **Running OpCore Simplify**:
+2. **Running Hackintosh-Auto-EFI**:
    - On **Windows**, run `Hackintosh-Auto-EFI.bat`.
    - On **macOS**, run `Hackintosh-Auto-EFI.command`.
    - On **Linux**, run `Hackintosh-Auto-EFI.py` with existing Python interpreter.
 
-   ![OpCore Simplify Menu](https://i.imgur.com/vTr1V9D.png)
+   ![Hackintosh-Auto-EFI Menu](https://i.imgur.com/vTr1V9D.png)
 
 3. **Selecting hardware report**:
    - On Windows, there will be an option for `E. Export hardware report`. It's recommended to use this for the best results with your hardware configuration and BIOS at the time of building.
@@ -115,10 +115,10 @@
 
 4. **Selecting macOS Version and Customizing OpenCore EFI**:
    - By default, the latest compatible macOS version will be selected for your hardware.
-   - OpCore Simplify will automatically apply essential ACPI patches and kexts. 
+   - Hackintosh-Auto-EFI will automatically apply essential ACPI patches and kexts. 
    - You can manually review and customize these settings as needed.
 
-   ![OpCore Simplify Menu](https://i.imgur.com/TSk9ejy.png)
+   ![Hackintosh-Auto-EFI Menu](https://i.imgur.com/TSk9ejy.png)
 
 5. **Building OpenCore EFI**:
    - Once you've customized all options, select **Build OpenCore EFI** to generate your EFI.
