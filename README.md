@@ -162,7 +162,7 @@ Distributed under the BSD 3-Clause License. See `LICENSE` for more information.
 ## 📞 **Contact**
 
 **Hoang Hong Quan**
-> Facebook [@macforce2601](https://facebook.com/macforce2601) &nbsp;&middot;&nbsp;
+> Facebook [congtuhaixinhzai](https://facebook.com/macforce2601) &nbsp;&middot;&nbsp;
 > Telegram [@congtuhaixinhzai](https://t.me/congtuhaixinhzai) &nbsp;&middot;&nbsp;
 > Email: congtuhaixinhzai@gmail.com
 
