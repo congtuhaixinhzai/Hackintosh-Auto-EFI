@@ -1,171 +1,100 @@
-<br/>
 <div align="center">
-  <h3 align="center">Hackintosh-Auto-EFI</h3>
 
-  <p align="center">
-    A specialized tool that streamlines <a href="https://github.com/acidanthera/OpenCorePkg">OpenCore</a> EFI creation by automating the essential setup process and providing standardized configurations. Designed to reduce manual effort while ensuring accuracy in your Hackintosh journey.
-    <br />
-    <br />
-    <a href="#-features">Features</a> •
-    <a href="#-how-to-use">How To Use</a> •
-    <a href="#-contributing">Contributing</a> •
-    <a href="#-license">License</a> •
-    <a href="#-credits">Credits</a> •
-    <a href="#-contact">Contact</a>
-  </p>
-  
-  <p align="center">
-    <a href="https://trendshift.io/repositories/15410" target="_blank"><img src="https://trendshift.io/api/badge/repositories/15410" alt="congtuhaixinhzai%2FHackintosh-Auto-EFI | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
-  </p>
+# 🛠️ Hackintosh-Auto-EFI
+**The Ultimate Automated OpenCore EFI Generator**
+
+[![GitHub Stars](https://img.shields.io/github/stars/congtuhaixinhzai/Hackintosh-Auto-EFI?style=for-the-badge&color=ffd700)](https://github.com/congtuhaixinhzai/Hackintosh-Auto-EFI/stargazers)
+[![License](https://img.shields.io/github/license/congtuhaixinhzai/Hackintosh-Auto-EFI?style=for-the-badge&color=007bff)](LICENSE)
+[![Python Version](https://img.shields.io/badge/python-3.8+-3776ab?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Trendshift](https://img.shields.io/endpoint?url=https%3A%2F%2Ftrendshift.io%2Fapi%2Fbadge%2Frepositories%2F15410&style=for-the-badge)](https://trendshift.io/repositories/15410)
+
+---
+
+A specialized tool that streamlines [OpenCore](https://github.com/acidanthera/OpenCorePkg) EFI creation. 
+**Automate the hard parts, focus on the journey.**
+
+[✨ Features](#-features) • [🚀 How To Use](#-how-to-use) • [🤝 Contributing](#-contributing) • [📞 Contact](#-contact)
+
 </div>
 
-> [!NOTE]
-> **OpenCore Legacy Patcher 3.0.0 – Now Supports macOS Tahoe 26!**
-> 
-> The long awaited version 3.0.0 of OpenCore Legacy Patcher is here, bringing **initial support for macOS Tahoe 26** to the community!
-> 
-> 🚨 **Please Note:**  
-> - Only OpenCore-Patcher 3.0.0 **from the [congtuhaixinhzai/OpenCore-Legacy-Patcher](https://github.com/congtuhaixinhzai/OpenCore-Legacy-Patcher/releases/tag/3.0.0)** repository provides support for macOS Tahoe 26 with early patches.
-> - Official Dortania releases or older patches **will NOT work** with macOS Tahoe 26.  
+> [!IMPORTANT]
+> ### 🚀 OpenCore Legacy Patcher 3.0.0 – macOS Tahoe 26 Support!
+> Bản cập nhật 3.0.0 mang đến khả năng hỗ trợ sơ khởi cho **macOS Tahoe 26**.
+> - **Yêu cầu:** Sử dụng bản build từ [congtuhaixinhzai/OpenCore-Legacy-Patcher](https://github.com/congtuhaixinhzai/OpenCore-Legacy-Patcher/releases/tag/3.0.0).
+> - **Lưu ý:** Các bản build chính thức từ Dortania hiện chưa hỗ trợ phiên bản này.
 
-> [!WARNING]
-> While Hackintosh-Auto-EFI significantly reduces setup time, the Hackintosh journey still requires:
-> - Understanding basic concepts from the [Dortania Guide](https://dortania.github.io/OpenCore-Install-Guide/)
-> - Testing and troubleshooting during the installation process
-> - Patience and persistence in resolving any issues that arise
->
-> Our tool does not guarantee a successful installation in the first attempt, but it should help you get started.
+---
 
-## ✨ **Features**
+## ✨ Features
 
-1. **Comprehensive Hardware and macOS Support**  
-   Fully supports modern hardware. Use `Compatibility Checker` to check supported/unsupported devices and macOS version supported.
+1. **Comprehensive Hardware Support** Hỗ trợ phần cứng hiện đại nhất thông qua `Compatibility Checker`.
+   - **CPU Intel:** Từ Nehalem (1st Gen) ➡️ **Arrow Lake (15th Gen/Core Ultra Series 2)**.
+   - **CPU AMD:** Ryzen & Threadripper (via [AMD Vanilla](https://github.com/AMD-OSX/AMD_Vanilla)).
+   - **GPU:** Hỗ trợ đầy đủ Intel iGPU (đến Gen 10), AMD dGPU (Navi 21/22/23) và các dòng NVIDIA cũ.
 
-   | **Component**  | **Supported**                                                                                       |
-   |----------------|-----------------------------------------------------------------------------------------------------|
-   | **CPU**        | Intel: Nehalem and Westmere (1st Gen) → Arrow Lake (15th Gen/Core Ultra Series 2) <br> AMD: Ryzen and Threadripper with [AMD Vanilla](https://github.com/AMD-OSX/AMD_Vanilla) |
-   | **GPU**        | Intel iGPU: Iron Lake (1st Gen) → Ice Lake (10th Gen) <br> AMD APU: The entire Vega Raven ASIC family (Ryzen 1xxx → 5xxx, 7x30 series) <br> AMD dGPU: Navi 23, Navi 22, Navi 21 generations, and older series <br> NVIDIA: Kepler, Pascal, Maxwell, Fermi, Tesla generations |
-   | **macOS**      | macOS High Sierra → macOS Tahoe |
+2. **Automated ACPI & Kexts** - Tích hợp **SSDTTime** để tự động tạo các bản vá: FakeEC, FixHPET, PLUG, RTCAWAC...
+   - Tự động nhận diện và thêm Kexts dựa trên cấu hình thực tế của máy.
+   - Fix lỗi Sleep (GPRW/UPRW) và quản lý thiết bị PCI thông minh.
 
-2. **ACPI Patches and Kexts**  
-   Automatically detects and adds ACPI patches and kexts based on hardware configuration.
-   
-   - Integrated with [SSDTTime](https://github.com/congtuhaixinhzai/SSDTTime) for common patches (e.g., FakeEC, FixHPET, PLUG, RTCAWAC).
-   - Includes custom patches:
-      - Prevent kernel panics by directing the first CPU entry to an active CPU, disabling the UNC0 device, and creating a new RTC device for HEDT systems.
-      - Disable unsupported or unused PCI devices, such as the GPU (using Optimus and Bumblebee methods or adding the disable-gpu property), Wi-Fi card, and NVMe storage controller.
-      - Fix sleep state values in _PRW methods (GPRW, UPRW, HP special) to prevent immediate wake.
-      - Add devices including ALS0, BUS0, MCHC, PMCR, PNLF, RMNE, IMEI, USBX, XOSI, along with a Surface Patch.
-      - Enable ALSD and GPI0 devices.
+3. **Advanced EFI Configurations** - Cấu hình **CpuTopologyRebuild** cho các CPU có nhân P-core & E-core.
+   - Tự động Spoof GPU ID và CPU ID cho các dòng không được hỗ trợ mặc định.
+   - Tối ưu SMBIOS cho cả hiệu năng và quản lý điện năng.
+   - Tích hợp sẵn các bản vá cho iServices và sửa lỗi nhận diện ổ đĩa.
 
-3. **Automatic Updates**  
-    Automatically checks for and updates OpenCorePkg and kexts from [Dortania Builds](https://dortania.github.io/builds/) and GitHub releases before each EFI build.
-            
-4. **EFI Configuration**  
-   Apply additional customization based on both widely used sources and personal experience.
+---
 
-   - Spoof GPU IDs for certain AMD GPUs not recognized in macOS.
-   - Use CpuTopologyRebuild kext for Intel CPUs with P-cores and E-cores to enhance performance.
-   - Disable System Integrity Protection (SIP).
-   - Spoof CPU IDs for Intel Pentium, Celeron, Core, and Xeon processors.
-   - Add custom CPU names for AMD CPUs, as well as Intel Pentium, Celeron, Xeon, and Core lines from the Rocket Lake (11th) generation and newer.
-   - Add a patch to allow booting macOS with unsupported SMBIOS.
-   - Add NVRAM entries to bypass checking the internal Bluetooth controller.
-   - Properly configure ResizeAppleGpuBars based on specific Resizable BAR information.
-   - Allow flexible iGPU configuration between headless and driving a display when a supported discrete GPU is present.
-   - Force Intel GPUs into VESA mode with HDMI and DVI connectors to simplify installation process.
-   - Provide configuration required for using OpenCore Legacy Patcher.
-   - Add built-in device property for network devices (fix 'Could not communicate with the server' when using iServices) and storage controllers (fix internal drives shown as external).
-   - Prioritize SMBIOS optimized for both power management and performance.
-   - Re-enable CPU power management on legacy Intel CPUs in macOS Ventura 13 and newer.
-   - Apply WiFi profiles for itlwm kext to enable auto WiFi connections at boot time.
+## 🚀 How To Use
 
-   and more...
+### 1. Download
+Tải phiên bản mới nhất từ repository:
+- 📥 [Download ZIP](https://github.com/congtuhaixinhzai/Hackintosh-Auto-EFI/archive/refs/heads/main.zip)
 
-5. **Easy Customization**  
-   In addition to the default settings applied, users can easily make further customizations if desired.
+### 2. Execution
+Chạy công cụ tương ứng với hệ điều hành của bạn:
 
-   - Custom ACPI patches, kexts, and SMBIOS adjustments (**not recommended**).
-   - Force load kexts on unsupported macOS versions.
+| Platform | Command / File |
+| :--- | :--- |
+| **Windows** | Run `Hackintosh-Auto-EFI.bat` |
+| **macOS** | Run `Hackintosh-Auto-EFI.command` |
+| **Linux** | Run `python3 Hackintosh-Auto-EFI.py` |
 
-## 🚀 **How To Use**
+### 3. Workflow
+- **Export Report:** Trên Windows, hãy chọn `E. Export hardware report` để công cụ quét BIOS và phần cứng chính xác nhất.
+- **Customize:** Bạn có thể tùy chỉnh các Kexts hoặc ACPI theo nhu cầu riêng trước khi build.
+- **Build:** Chọn **Build OpenCore EFI**, tool sẽ tự động tải các bản build mới nhất từ Dortania và GitHub.
 
-1. **Download Hackintosh-Auto-EFI**:
-   - Click **Code** → **Download ZIP**, or download directly via this [link](https://github.com/congtuhaixinhzai/Hackintosh-Auto-EFI/archive/refs/heads/main.zip).  
-   - Extract the downloaded ZIP file to your desired location.
+---
 
-   ![Download Hackintosh-Auto-EFI](https://i.imgur.com/mcE7OSX.png)
+## 🤝 Contributing
 
-2. **Running Hackintosh-Auto-EFI**:
-   - On **Windows**, run `Hackintosh-Auto-EFI.bat`.
-   - On **macOS**, run `Hackintosh-Auto-EFI.command`.
-   - On **Linux**, run `Hackintosh-Auto-EFI.py` with existing Python interpreter.
+Mọi sự đóng góp đều rất quý giá! Nếu bạn có ý tưởng cải tiến, đừng ngần ngại:
+1. **Fork** dự án.
+2. Tạo **Pull Request**.
+3. Hoặc mở một **Issue** với tag "enhancement".
 
-   ![Hackintosh-Auto-EFI Menu](https://i.imgur.com/vTr1V9D.png)
+Hãy tặng dự án 1 ⭐ Star nếu nó giúp ích cho bạn!
 
-3. **Selecting hardware report**:
-   - On Windows, there will be an option for `E. Export hardware report`. It's recommended to use this for the best results with your hardware configuration and BIOS at the time of building.
-   - Alternatively, use [**Hardware Sniffer**](https://github.com/congtuhaixinhzai/Hardware-Sniffer-HC) to create a `Report.json` and ACPI dump for configuration manully.
+---
 
-   ![Selecting hardware report](https://i.imgur.com/MbRmIGJ.png)
+## 📜 License & Credits
 
-   ![Loading ACPI Tables](https://i.imgur.com/SbL6N6v.png)
+- **License:** BSD 3-Clause License.
+- **Credits:** Cảm ơn [OpenCorePkg](https://github.com/acidanthera/OpenCorePkg), [SSDTTime](https://github.com/congtuhaixinhzai/SSDTTime) và cộng đồng Hackintosh.
 
-   ![Compatibility Checker](https://i.imgur.com/kuDGMmp.png)
+---
 
-4. **Selecting macOS Version and Customizing OpenCore EFI**:
-   - By default, the latest compatible macOS version will be selected for your hardware.
-   - Hackintosh-Auto-EFI will automatically apply essential ACPI patches and kexts. 
-   - You can manually review and customize these settings as needed.
+## 📞 Contact
 
-   ![Hackintosh-Auto-EFI Menu](https://i.imgur.com/TSk9ejy.png)
+<div align="center">
 
-5. **Building OpenCore EFI**:
-   - Once you've customized all options, select **Build OpenCore EFI** to generate your EFI.
-   - The tool will automatically download the necessary bootloader and kexts, which may take a few minutes.
+**Congtuhaixinhzai**
 
-   ![WiFi Profile Extractor](https://i.imgur.com/71TkJkD.png)
+[![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://facebook.com/congtuhaixinhzai)
+[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/congtuhaixinhzai)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:congtuhaixinhzai@gmail.com)
 
-   ![Choosing Codec Layout ID](https://i.imgur.com/Mcm20EQ.png)
+</div>
 
-   ![Building OpenCore EFI](https://i.imgur.com/deyj5de.png)
-
-6. **USB Mapping**:
-   - After building your EFI, follow the steps for mapping USB ports.
-
-   ![Results](https://i.imgur.com/MIPigPF.png)
-
-7. **Create USB and Install macOS**: 
-   - Use [**UnPlugged**](https://github.com/congtuhaixinhzai/UnPlugged) on Windows to create a USB macOS installer, or follow [this guide](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html) for macOS.
-   - For troubleshooting, refer to the [OpenCore Troubleshooting Guide](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/troubleshooting.html).
-
-> [!NOTE]
-> 1. After a successful installation, if OpenCore Legacy Patcher is required, simply apply root patches to activate the missing features (such as modern Broadcom Wi-Fi card and graphics acceleration).
-> 
-> 2. For AMD GPUs, after applying root patches from OpenCore Legacy Patcher, you need to remove the boot argument `-radvesa`/`-amd_no_dgpu_accel` for graphics acceleration to work.
-
-## 🤝 **Contributing**
-
-Contributions are **highly appreciated**! If you have ideas to improve this project, feel free to fork the repo and create a pull request, or open an issue with the "enhancement" tag.
-
-Don't forget to ⭐ star the project! Thank you for your support! 🌟
-
-## 📜 **License**
-
-Distributed under the BSD 3-Clause License. See `LICENSE` for more information.
-
-## 🙌 **Credits**
-
-- [OpenCorePkg](https://github.com/acidanthera/OpenCorePkg) and [kexts](https://github.com/congtuhaixinhzai/Hackintosh-Auto-EFI/blob/main/Scripts/datasets/kext_data.py) – The backbone of this project.
-- [SSDTTime](https://github.com/congtuhaixinhzai/SSDTTime) – SSDT patching utilities.
-
-## 📞 **Contact**
-
-**Hoang Hong Quan**
-> Facebook [congtuhaixinhzai](https://facebook.com/macforce2601) &nbsp;&middot;&nbsp;
-> Telegram [@congtuhaixinhzai](https://t.me/congtuhaixinhzai) &nbsp;&middot;&nbsp;
-> Email: congtuhaixinhzai@gmail.com
-
-## 🌟 **Star History**
+## 🌟 Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=congtuhaixinhzai/Hackintosh-Auto-EFI&type=Date)](https://star-history.com/#congtuhaixinhzai/Hackintosh-Auto-EFI&Date)
