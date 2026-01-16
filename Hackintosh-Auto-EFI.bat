@@ -1,5 +1,5 @@
 @echo off
-REM Source: https://github.com/corpnewt/SSDTTime/blob/97a3963e40a153a8df5ae61a73e150cd7a119b3c/SSDTTime.bat
+REM Source: https://github.com/congtuhaixinhzai/SSDTTime/blob/97a3963e40a153a8df5ae61a73e150cd7a119b3c/SSDTTime.bat
 REM Get our local path before delayed expansion - allows ! in path
 set "thisDir=%~dp0"
 
@@ -239,7 +239,7 @@ if not exist "%TEMP%\pyurl.txt" (
 )
 echo Parsing for latest...
 pushd "%TEMP%"
-:: Version detection code slimmed by LussacZheng (https://github.com/corpnewt/gibMacOS/issues/20)
+:: Version detection code slimmed by LussacZheng (https://github.com/congtuhaixinhzai/gibMacOS/issues/20)
 for /f "tokens=9 delims=< " %%x in ('findstr /i /c:"Latest Python !targetpy! Release" pyurl.txt') do ( set "release=%%x" )
 popd
 if "!release!" == "" (

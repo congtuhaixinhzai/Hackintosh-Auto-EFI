@@ -1,4 +1,4 @@
-# Original source: https://github.com/corpnewt/SSDTTime/blob/44aadf01b7fe75cb4a3eab5590e7b6c458265c6f/SSDTTime.py
+# Original source: https://github.com/congtuhaixinhzai/SSDTTime/blob/44aadf01b7fe75cb4a3eab5590e7b6c458265c6f/SSDTTime.py
 
 from Scripts.datasets import acpi_patch_data
 from Scripts.datasets import chipset_data

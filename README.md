@@ -50,7 +50,7 @@
 2. **ACPI Patches and Kexts**  
    Automatically detects and adds ACPI patches and kexts based on hardware configuration.
    
-   - Integrated with [SSDTTime](https://github.com/corpnewt/SSDTTime) for common patches (e.g., FakeEC, FixHPET, PLUG, RTCAWAC).
+   - Integrated with [SSDTTime](https://github.com/congtuhaixinhzai/SSDTTime) for common patches (e.g., FakeEC, FixHPET, PLUG, RTCAWAC).
    - Includes custom patches:
       - Prevent kernel panics by directing the first CPU entry to an active CPU, disabling the UNC0 device, and creating a new RTC device for HEDT systems.
       - Disable unsupported or unused PCI devices, such as the GPU (using Optimus and Bumblebee methods or adding the disable-gpu property), Wi-Fi card, and NVMe storage controller.
@@ -136,7 +136,7 @@
    ![Results](https://i.imgur.com/MIPigPF.png)
 
 7. **Create USB and Install macOS**: 
-   - Use [**UnPlugged**](https://github.com/corpnewt/UnPlugged) on Windows to create a USB macOS installer, or follow [this guide](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html) for macOS.
+   - Use [**UnPlugged**](https://github.com/congtuhaixinhzai/UnPlugged) on Windows to create a USB macOS installer, or follow [this guide](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html) for macOS.
    - For troubleshooting, refer to the [OpenCore Troubleshooting Guide](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/troubleshooting.html).
 
 > [!NOTE]
@@ -157,7 +157,7 @@ Distributed under the BSD 3-Clause License. See `LICENSE` for more information.
 ## 🙌 **Credits**
 
 - [OpenCorePkg](https://github.com/acidanthera/OpenCorePkg) and [kexts](https://github.com/congtuhaixinhzai/Hackintosh-Auto-EFI/blob/main/Scripts/datasets/kext_data.py) – The backbone of this project.
-- [SSDTTime](https://github.com/corpnewt/SSDTTime) – SSDT patching utilities.
+- [SSDTTime](https://github.com/congtuhaixinhzai/SSDTTime) – SSDT patching utilities.
 
 ## 📞 **Contact**
 

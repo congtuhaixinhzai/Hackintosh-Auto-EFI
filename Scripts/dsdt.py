@@ -1,4 +1,4 @@
-# Original source: https://github.com/corpnewt/SSDTTime/blob/64446d553fcbc14a4e6ebf3d8d16e3357b5cbf50/Scripts/dsdt.py
+# Original source: https://github.com/congtuhaixinhzai/SSDTTime/blob/64446d553fcbc14a4e6ebf3d8d16e3357b5cbf50/Scripts/dsdt.py
 
 import os, errno, tempfile, shutil, plistlib, sys, binascii, zipfile, getpass, re
 from Scripts import github

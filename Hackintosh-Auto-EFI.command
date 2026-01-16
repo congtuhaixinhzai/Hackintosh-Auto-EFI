@@ -1,4 +1,4 @@
-# Source: https://github.com/corpnewt/SSDTTime/blob/97a3963e40a153a8df5ae61a73e150cd7a119b3c/SSDTTime.command
+# Source: https://github.com/congtuhaixinhzai/SSDTTime/blob/97a3963e40a153a8df5ae61a73e150cd7a119b3c/SSDTTime.command
 
 #!/usr/bin/env bash
 
