@@ -1,10 +1,48 @@
 @echo off
-REM Source: https://github.com/congtuhaixinhzai/SSDTTime/blob/97a3963e40a153a8df5ae61a73e150cd7a119b3c/SSDTTime.bat
-REM Get our local path before delayed expansion - allows ! in path
+REM Source: https://github.com/congtuhaixinhzai/SSDTTime
 set "thisDir=%~dp0"
 
 setlocal enableDelayedExpansion
-REM Setup initial vars
+
+REM ==========================================
+REM PROFESSIONAL WELCOME SCREEN
+REM ==========================================
+cls
+color 0B
+echo.
+echo    ______________________________________________________
+echo.
+echo       WELCOME TO AUTO EFI BY HAI CHIP
+echo       Status: Initializing System...
+echo    ______________________________________________________
+echo.
+echo    Starting in 3 seconds...
+timeout /t 1 /nobreak > nul
+cls
+echo.
+echo    ______________________________________________________
+echo.
+echo       WELCOME TO AUTO EFI BY HAI CHIP
+echo       Status: Loading Modules [###               ] 33%%
+echo    ______________________________________________________
+echo.
+echo    Starting in 2 seconds...
+timeout /t 1 /nobreak > nul
+cls
+echo.
+echo    ______________________________________________________
+echo.
+echo       WELCOME TO AUTO EFI BY HAI CHIP
+echo       Status: Finalizing [####################] 100%%
+echo    ______________________________________________________
+echo.
+echo    Starting in 1 second...
+timeout /t 1 /nobreak > nul
+color 07
+cls
+REM ==========================================
+
+REM Tiếp tục các thiết lập cũ của script
 set "script_name="
 set /a tried=0
 set "toask=yes"
